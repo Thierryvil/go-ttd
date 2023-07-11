@@ -1,13 +1,29 @@
 package main
 
 const prefixHelloPortuguese = "Olá, "
+const prefixHelloSpanish = "Hola, "
+const prefixHelloFrench = "Bonjour, "
 
-func Hello(nome string) string {
-	if nome == "" {
-		nome = "Mundo!"
+const spanish = "spanish"
+const french = "french"
+
+func Hello(name, language string) string {
+	if name == "" {
+		name = "Mundo!"
 	}
-	return prefixHelloPortuguese + nome
+
+	return prefixHello(language) + name
+
 }
 
-func main() {
+func prefixHello(language string) (prefix string) {
+	switch language {
+	case spanish:
+		prefix = prefixHelloSpanish
+	case french:
+		prefix = prefixHelloFrench
+	default:
+		prefix = prefixHelloPortuguese
+	}
+	return
 }
